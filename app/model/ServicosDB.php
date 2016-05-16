@@ -18,33 +18,64 @@
     			exit();
 			}
 		}
-		/**Rertona um objeto com um atributo chamado "quanto " do tipo int 
+		/**Rertona um objeto com um atributo chamado "quantidade" do tipo int 
 		com o total de pacientes cadastrados no banco de dados*/
 		public function get_total_pacientes(){
-			$sql = "SELECT count(id) as quant FROM pacientes";
+			$sql = "SELECT count(id) as quantidade FROM paciente";
 			#traz a uma linha com o resultado.
-			$resultado = $this->mysqli->query($sql);
+			$result = $this->mysqli->query($sql);
 			#converte o resultado em um objeto.
-			return $resultado->fetch_object();
+			return $result->fetch_object();
+		}
+		/**Busca pacintes pelo primeiro nome ou cpf, tanto em maiuscula como 
+		em minuscula senão encontra nada rertona uma array vazio*/
+		public function buscar_pacientes($valor){
+			$sql = "SELECT * FROM paciente where cpf = '{$valor}' OR nome like '{$valor}%'";	
+			$result = $this->mysqli->query($sql);
+			$pacientes = array();
+			while($p = $result->fetch_object()){
+				$pacientes[] = $p;
+			}
+			return $pacientes;
+		}
+		/**Busca todos os pacientes pelo estado passado como parametro tanto 
+		em maiuscula como em minuscula senão encontra nada rertona uma array vazio*/
+		public function listarPacientesPorEstado($sigla){
+			$sql = "SELECT id,cpf, nome, situacao, cidade FROM paciente WHERE estado = '{$sigla}' ORDER BY nome";
+			$result = $this->mysqli->query($sql);
+			$pacientes = array();
+			while($p = $result->fetch_object()){
+				$pacientes[] = $p;
+			}
+			return $pacientes;
 		}
 
-		public function all_names(){
-			$sql = "SELECT id, nome FROM pacientes ORDER BY nome";
-			#atribui a variavel resultado os as buscas sql.
-			$resultado = $this->mysqli->query($sql);
-			return $resultado;
+		public function listarQuantPacientesPorEstado(){
+			$sql = "SELECT estado, COUNT(id) as quantidade FROM paciente GROUP BY estado";
+			$result = $this->mysqli->query($sql);
+			$estados = array();
+			while($e = $result->fetch_object()){
+				$estados[] = $e;
+			}
+			return $estados;
 		}
+
+		public function listar(){}
+
+		public function gravaPaciente(Paciente $p){}
 	}
 
 	$banco = new ServicosDB();
 
-	#$n = $banco->get_total_pacientes();
+	$array = $banco->buscar_pacientes("40394779100");
 
-	#echo "Quantidade total de pacientes: ".$n->quant;
+	#echo "Quantidade total de pacientes: ".$n->quantidade;
 
-	$pessoas = $banco->all_names();
+	#$sigla = "SP";
 
-	while ($p = $pessoas->fetch_object()) {
-		echo "paciente $p->id : ".$p->nome."<br>";
+	#$array = $banco->listarQuantPacientesPorEstado();
+
+	foreach ($array as $x) {
+		echo "CPF: $x->cpf Nome: $x->nome <br>";
 	}
 ?>
