@@ -66,16 +66,9 @@ Class Pessoa{
 	}
 
 	public function get_nascimento(){
-		if($this->nascimento == "" || $this->nascimento == "0000-00-00"){
-			return "";
-		}
-		$dados = explode("-",$this->nascimento);
-		if(count($dados) != 3){
-			return $data;
-		}
-		$data_exibir = "{$dados[2]}/{$dados[1]}/{$dados[0]}";
-		return $data_exibir;
+		return $this->nascimento;
 	}
+		
 }
 
 ?>

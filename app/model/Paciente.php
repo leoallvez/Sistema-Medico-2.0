@@ -6,29 +6,22 @@ class Paciente extends Pessoa{
 	private $data_atendimento;
 	private $situacao;
 	#objeto.
-	private $crm_medico;
 	private $sintomas;
 
 	private $parecer_medico;
 
-	public function __construct($situ = "", $crm, $nome, $cpf, $nasc, $sexo, Endereco $ende, Sintomas $sint){
+	public function __construct($situ = "", $crm, $nome, $cpf, $nasc, $sexo, Endereco $ende, Sintomas $sint, $pare){
 		$this->data_atendimento = date("Y-m-d");
-		$this->crm_medico = $crm;
 		$this->situacao = $situ;
+		$this->crm_medico = $crm;
 		parent::__construct($nome, $cpf, $nasc, $sexo, $ende);
 		$this->sintomas = $sint;
+		$this->parecer_medico = $pare;
 	}
 
 	public function get_data_atendimento(){
-		if($this->data_atendimento == "" || $this->nascimento == "0000-00-00"){
-			return "";
-		}
-		$dados = explode("-",$this->data_atendimento);
-		if(count($dados) != 3){
-			return $data;
-		}
-		$data_exibir = "{$dados[2]}/{$dados[1]}/{$dados[0]}";
-		return $data_exibir;
+
+		return $this->data_atendimento;
 	}
 
 	public function get_situacao(){
@@ -77,6 +70,10 @@ class Paciente extends Pessoa{
 
 	public function get_dor_ossos(){
 		return $this->sintomas->get_dor_ossos();
+	}
+
+	public function get_parecer_medico(){
+		return $this->parecer_medico;
 	}
 }
 

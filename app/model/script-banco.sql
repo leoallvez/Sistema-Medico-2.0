@@ -22,7 +22,7 @@ CREATE TABLE medico(
 
 CREATE TABLE paciente(
 	id INTEGER  AUTO_INCREMENT PRIMARY KEY,
-	id_medico INTEGER REFERENCES medico(id),
+	id_medico INTEGER NOT NULL REFERENCES medico(id),
 	data_atendimento DATE,
 	situacao VARCHAR(50),
 	cpf VARCHAR(11) NOT NULL UNIQUE,
@@ -35,8 +35,7 @@ CREATE TABLE paciente(
 	cidade VARCHAR(60),
 	estado CHAR(2),
 	#unidade de saúde
-	tipo_unidade VARCHAR(60),
-	nome_unidade VARCHAR(60),
+	id_unidade INTEGER NOT NULL REFERENCES unidade_de_saude(id),
 	#Sintomas 10!
 	febre BOOLEAN,
 	dor_cabeca BOOLEAN,
@@ -61,11 +60,11 @@ INSERT INTO unidade_de_saude VALUES(default,"Hospital Especializado","Hospital E
 INSERT INTO unidade_de_saude VALUES(default,"Unidade Mista","Unidade mista Steve Wozniak");
 
 #inserindo médicos.
-INSERT INTO medico VALUES(default,1,"Linus Torvalds","12345","12345","Clínico Geral ");
-INSERT INTO medico VALUES(default,2,"Serge Brinn","12346","12345","Clínico Geral ");
-INSERT INTO medico VALUES(default,3,"Shigeru Miyamoto","12347","12345","Clínico Geral ");
-INSERT INTO medico VALUES(default,4,"Mark Zuckerberg","12348","12345","Clínico Geral ");
-INSERT INTO medico VALUES(default,5,"Ada Lovelace","12349","12345","Clínico Geral ");
+INSERT INTO medico VALUES(default,1,"Linus Torvalds","12345","12345","Clínico Geral","dr@servidor.com.br ");
+INSERT INTO medico VALUES(default,2,"Serge Brinn","12346","12345","Clínico Geral","dr@servidor.com.br ");
+INSERT INTO medico VALUES(default,3,"Shigeru Miyamoto","12347","12345","Clínico Geral","dr@servidor.com.br  ");
+INSERT INTO medico VALUES(default,4,"Mark Zuckerberg","12348","12345","Clínico Geral","dr@servidor.com.br");
+INSERT INTO medico VALUES(default,5,"Ada Lovelace","12349","12345","Clínico Geral","dr@servidor.com.br ");
 
 					   
 
@@ -76,6 +75,10 @@ INSERT INTO paciente VALUES (default,1,'2016-05-15','Passou pela Triagem','37090
 SELECT estado, COUNT(id) as "Quant" FROM paciente WHERE situacao = 'Passou pela Triagem' GROUP BY estado;
 
 SELECT cpf, nome, situacao, cidade FROM paciente WHERE estado = 'SP' ORDER BY nome;
+
+
+SELECT id,cpf, nome, situacao, cidade FROM paciente WHERE estado = 'SP' AND situacao = 'Esta Internado' ORDER BY nome
+
 
 
 
