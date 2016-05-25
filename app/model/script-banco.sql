@@ -25,12 +25,12 @@ CREATE TABLE paciente(
 	id_medico INTEGER NOT NULL REFERENCES medico(id),
 	data_atendimento DATE,
 	situacao VARCHAR(50),
-	cpf VARCHAR(11) NOT NULL UNIQUE,
+	cpf VARCHAR(15) NOT NULL UNIQUE,
 	nome VARCHAR(60) NOT NULL,
 	nascimento DATE,
 	sexo CHAR(1) CHECK(sexo IN('M','F')),
 	endereco VARCHAR(60),
-	cep CHAR(8),
+	cep CHAR(9),
 	bairro VARCHAR(60),
 	cidade VARCHAR(60),
 	estado CHAR(2),
@@ -48,7 +48,7 @@ CREATE TABLE paciente(
 	moleza BOOLEAN,
 	dor_ossos BOOLEAN,
 	#parecer.
-	parece_medico TEXT
+	parecer_medico TEXT
 );
 
 #inserindo unidades médicas.

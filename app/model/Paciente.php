@@ -1,6 +1,7 @@
 <?php 
-include "Sintomas.php";
-include "Medico.php";
+include "app/model/Sintomas.php";
+include "app/model/Medico.php";
+#include "app/model/Pessoa.php";
 
 class Paciente extends Pessoa{
 	private $data_atendimento;

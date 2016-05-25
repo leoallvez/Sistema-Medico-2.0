@@ -1,6 +1,7 @@
 <?php
-	include "Pessoa.php";
-	include "UnidadeDeAtendimento.php";
+	include "app/model/Pessoa.php";
+	include "app/model/UnidadeDeAtendimento.php";
+	
 	class Medico extends Pessoa{
 		private $crm;
 		private $especialidade;

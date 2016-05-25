@@ -1,27 +1,12 @@
 <?php 
 	include "Paciente.php";
-	class ServicosDB{
-		private $servidor;
-		private $usuario;
-		private $senha;
-		private $banco;
-		private $mysqli;
-		# Pesquisar sobre Factory Pattern em PhP
-		# Criar uma classe para cada elemento
-		# PacienteDao, MedicoDao, CentroDeSaudeDao
-		# Dao = Data Access Object
+	include "DAO.php";
+	class PacienteDAO extends DAO{
+
 		public function __construct(){
-			$this->servidor = "localhost";
-			$this->usuario = "root";
-			$this->senha = "";
-			$this->banco = "hospital";
-			$this->mysqli = new mysqli($this->servidor, $this->usuario, $this->senha, $this->banco);
-			#mensagem de erro caso não faça a conexão com o banco.
-			if(mysqli_connect_errno()){
-				die('Não foi possível conectar-se ao banco de dados: ' . mysqli_connect_error());
-    			exit();
-			}
+			parent::__construct();
 		}
+	
 		/**Rertona um objeto com um atributo chamado "quantidade" do tipo int 
 		com o total de pacientes cadastrados no banco de dados*/
 		public function getTotalPacientes(){
@@ -129,19 +114,19 @@
 		}
 	}
 
-	$banco = new ServicosDB();
+	/**$banco = new ServicosDB();
 
-	#$array = $banco->listarQuantPacientesPorEstado("Unidade Mista");
+	$array = $banco->listarQuantPacientesPorEstado("Unidade Mista");
 
-	#echo "Quantidade total de pacientes: ".$n->quantidade;
+	echo "Quantidade total de pacientes: ".$n->quantidade;
 
-	#$sigla = "SP";
+	$sigla = "SP";
 
-	#$array = $banco->listarQuantPacientesPorEstado();
+	$array = $banco->listarQuantPacientesPorEstado();
 
-	/**foreach ($array as $x) {
+	foreach ($array as $x) {
 		echo "Estado: $x->estado Quantidade: $x->quantidade <br>";
-	}*/
+	}
 
 	#Situacao.
 	$sit = "Internado";
@@ -164,12 +149,9 @@
 	$es = "SP";
 	$pa = "Essa pessoa esta muito doente!";
 
-
 	$ende = new Endereco($lo,$ce,$ba,$ci,$es);
 
 	#$p = new Paciente($sit, $crm, $nome, $cpf,$nasc,$sexo,$ende,$sint);
 
-	$banco->gravarPaciente( new Paciente($sit, $crm, $nome, $cpf,$nasc,$sexo,$ende,$sint,$pa),1);
-
-	
+	$banco->gravarPaciente( new Paciente($sit, $crm, $nome, $cpf,$nasc,$sexo,$ende,$sint,$pa),1);*/
 ?>

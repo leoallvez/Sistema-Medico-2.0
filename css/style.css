@@ -1,0 +1,243 @@
+body{
+  background: #F0FFFF;
+  transition: all 0.9s;
+}
+
+.red{
+  color: red;
+}
+.cad-paciente th{
+  font-size: 1.4em; 
+  background: #87CEFA;
+  color: #FFF;
+  text-shadow: 1px 1px 1px #000;
+
+}
+
+.cad-paciente th, td{
+  border: 1px solid #87CEFA;
+  padding: 2%;
+  text-align: center;
+  
+  margin: 2%;
+  position: relative;
+  font-size: 1.1em; 
+  
+}
+
+.cad-paciente table{
+  transition: all 1s;
+  margin-left: 1%;
+  margin-top: 2%;
+  min-width: 650px;
+  border: 3px solid #87CEFA;
+  border-radius: 5px;
+  padding: 2%;
+  box-shadow: 2px 2px 2px rgba(0,0,0,0.5);
+}
+
+
+
+.foot1{
+  border: solid 1px #808080;
+  font-size: 0.9em;
+  padding: 0%;
+  margin: 0px;
+  text-align: center;
+  width: 100%;
+  margin-left: 0;
+  background: #DCDCDC;
+  opacity: 0.9;
+  position: relative;
+  bottom: 0px;
+  color: #696969;
+  bottom:0;
+}
+
+.foot2{
+  bottom:0;
+  border: solid 1px #808080;
+  font-size: 0.9em;
+  padding: 0%;
+  margin: 0px;
+  text-align: center;
+  width: 100%;
+  margin-left: 0;
+  background: #DCDCDC;
+  opacity: 0.9;
+  position: absolute;
+  color: #696969;
+}
+
+h3{
+  color: #1E90FF;
+  text-shadow: 1px 1px 1px rgba(0,0,0,0.7);
+}
+
+.foot p{
+  padding: 1%;
+}
+
+.login{
+  border-radius: 5px;
+  box-shadow: 0px 0px 5px rgba(0,0,0,.5);
+  padding: 2%;
+  margin: 7% auto auto;
+  border: 1px solid #808080;
+  background: #FFF;
+  min-height: 80%;
+  width: 25%;
+  background: #FFF;
+}
+
+legend{
+  color: #1E90FF;
+  text-shadow: 1px 1px 1px rgba(0,0,0,1);
+}
+
+form{
+  margin: 1% auto auto;
+  position: relative;
+}
+
+.login input{
+  margin: 1%;
+  border: 1px solid #808080;
+  border-radius: 5px;
+  padding: 1%;
+  width: 80%;
+}
+
+.login input{
+  outline-color: #00BFFF;
+  outline-size: 2px;
+}
+
+.login input[type=submit]{
+  text-shadow: 1px 1px 1px #000;
+  background: #87CEFA;
+  color: #FFF;
+  transition: all 0.5s;
+}
+
+.login input[type=submit]:hover{
+  background: #00BFFF;
+  color: #FFF;
+}
+
+.login input[type=submit]:active{
+  font-size: 1.1em;
+}
+
+.cad-paciente{
+  border-radius: 5px;
+  box-shadow: 0px 0px 5px rgba(0,0,0,.5);
+  padding: 2%;
+  margin: 2% auto auto;
+  border: 1px solid #808080;
+  background: #FFF;
+  margin-bottom: 2%;
+  width: 85%;
+}
+
+.cad-paciente input:focus,
+.cad-paciente textarea:focus{
+  background: #F0FFFF;
+  color: #4169E1;
+  font-family: Verdana;
+  outline-color: #00BFFF;
+  outline-size: 2px;
+}
+
+.cad-paciente input, 
+.cad-paciente select, 
+.cad-paciente textarea{
+  padding: 1%;
+  margin: 1%;
+  border: 1px solid #808080;
+  border-radius: 5px;
+  color: #4169E1;
+}
+
+.cad-paciente label, .cad-paciente label, 
+.cad-paciente select, .cad-paciente fieldset, 
+h3{
+  margin-left: 1%;
+}
+
+.input-large{
+  width: 70%;
+}
+
+.cad-paciente input[type="submit"], 
+.cad-paciente input[type="reset"], 
+.cad-paciente input[type="button"]{
+  width: 10%;
+  border: 1px solid #808080;
+  text-shadow: 1px 1px 1px #000;
+  transition: all 0.9s;
+}
+
+.cad-paciente input[type="submit"]:active,
+.cad-paciente input[type="reset"]:active, 
+.cad-paciente input[type="button"]:active{
+  font-size: 1.5em;
+}
+
+.cad-paciente input[type=reset],
+.cad-paciente input[type=submit], 
+.cad-paciente input[type=button]{
+  color: #FFF;
+  background: #87CEFA;
+  text-shadow: 1px 1px 1px #000;
+  box-shadow: 1px 1px 2px #000;
+  background-image: linear-gradient(to bottom,#1E90FF,#4169E1);
+}
+
+/**#00BFFF #87CEFA*/
+.cad-paciente input[type=reset]:hover,
+.cad-paciente input[type=submit]:hover, 
+.cad-paciente input[type="button"]:hover{
+  color: #FFF;
+  background-image: linear-gradient(to bottom,#00BFFF,#4169E1);
+}
+
+@media screen and (max-width: 720px) {
+  body{
+    background: #FFF;
+  }
+  
+  .login{
+    width: 80%;
+    margin-top: 20%;
+  }
+
+  .cad-paciente{
+    border-radius: none;
+    box-shadow: none;
+    padding: 2%;
+    margin: 2% auto auto;
+    border: 0px;
+    border-style: none;
+    border-color: none;
+    background: #FFF;
+    min-height: 80%;
+    width: 100%;
+    background: #FFF;
+  }
+
+  .input-large{
+    width: 100%;
+  }
+
+  .cad-paciente input[type="submit"], 
+  .cad-paciente input[type="reset"], 
+  .cad-paciente input[type="button"]{
+    width: 20%;
+  }
+
+  .cad-paciente table{
+    min-width: 100%;
+    margin-left: 0;
+  }
+}
