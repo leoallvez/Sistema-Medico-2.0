@@ -31,11 +31,11 @@
 		/**Retorna um a quantidade total de pacientes em cada estado se se for 
 		passado parametro com o tipo de unidade de saude avalia por tipo de unidade de saúde tambem
 		não tiver nenhum estado cadastrado no banco de dados retorna um array vazio*/
-		public function listarQuantPacientesPorEstado($tipoUnidade = null){
-			if(isset($tipoUnidade)){
-				$sql = "SELECT estado, COUNT(id) as quantidade FROM paciente WHERE id_unidade = (SELECT id FROM unidade_de_saude WHERE tipo = '{$tipoUnidade}') GROUP BY estado";	
+		public function listarQuantPacientesPorEstado($tipoUnidade = null, $situacao){
+			if($tipoUnidade != "Todos"){
+				$sql = "SELECT estado, COUNT(id) as quantidade FROM paciente WHERE situacao = '{$situacao}' AND id_unidade = (SELECT id FROM unidade_de_saude WHERE tipo = '{$tipoUnidade}') GROUP BY estado";	
 			}else{
-				$sql = "SELECT estado, COUNT(id) as quantidade FROM paciente GROUP BY estado";	
+				$sql = "SELECT estado, COUNT(id) as quantidade FROM paciente WHERE situacao = '{$situacao}' GROUP BY estado";	
 			}
 			$result = $this->mysqli->query($sql);
 			$estados = array();

@@ -86,4 +86,17 @@
     	}
 	}
 
+	function calculaPorEstado($objeto){
+		$total = 0;
+		foreach ($objeto as $ob) {
+			$total += $ob->quantidade;
+		}
+		return $total;
+	}
+
+	function porcentagem($total, $valor){
+		#round(1.95583, 2);
+		return round(($valor * 100) / $total,1);
+	}
+
 ?>

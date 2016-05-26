@@ -12,9 +12,13 @@
 		# Dao = Data Access Object
 		public function __construct(){
 			$this->servidor = "localhost";
+			#$this->servidor = "mysql.hostinger.com.br";
 			$this->usuario = "root";
+			#$this->usuario = "u594755197_allve";
 			$this->senha = "";
+			#$this->senha = "B0oks!=pcs@xpt0";
 			$this->banco = "hospital";
+			#$this->banco = "u594755197_hospi";
 			$this->mysqli = new mysqli($this->servidor, $this->usuario, $this->senha, $this->banco);
 			#mensagem de erro caso não faça a conexão com o banco.
 			if(mysqli_connect_errno()){

@@ -1,4 +1,4 @@
-<nav role="navigation" class="navbar navbar-default">
+<nav role="navigation" class="navbar navbar-inverse">
             <!-- Brand and toggle get grouped for better mobile display -->
             <div class="navbar-header">
                 <button type="button" data-target="#navbarCollapse" data-toggle="collapse" class="navbar-toggle">
@@ -21,7 +21,7 @@
                             <li><a href="#">Hospital</a></li>
                         </ul>
                     </li>
-                    <li><a href="relatorio-pacientes.php">Relatório</a></li>
+                    <li><a href="relatorio.php">Relatório</a></li>
                 </ul>
                 <form role="search" class="navbar-form navbar-left">
                     <div class="form-group">

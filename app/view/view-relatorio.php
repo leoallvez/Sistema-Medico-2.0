@@ -1,5 +1,7 @@
 <!DOCTYPE html>
+
 <html lang="en">
+    <?php include "app/view/includes/helpers.php"; ?>
     <head>
         <title>Health Info |  Relatório</title>
         <meta charset="utf-8">
@@ -7,35 +9,44 @@
         <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
         <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
-        <link rel="stylesheet" href="_css/style.css"/>
+        <link rel="stylesheet" href="css/style.css"/>
     </head>
     <body>
-        <?php include "_php/head.php"; ?>
+        <?php include "app/view/includes/view-head.php"; ?>
         <div class="cad-paciente">
-            <h3>Relatório de Paciente Que <?php echo $situacao; echo " até ".date("d/n/Y"); ?></h3>
+            <h3>Relatório de Paciente Que <?php echo $situacao;?></h3>
             <form method="POST">
-                <?php include "_php/status.php"; ?> 
-                <?php include "_php/unidade-saude.php"; ?>
+                <?php include "app/view/includes/view-status.php"; ?> 
+                <?php include "app/view/includes/view-unidade-saude.php"; ?>
                 <input type="submit" value="Buscar"></br>
             </form>
+            <?php $total = calculaPorEstado($pacientes); ?>
             <?php if($mostrarTabela): ?>
                 <table>
                     <tr>
                         <th>Estado</th>
                         <th>Sigla</th>
                         <th>Quantidade</th>
+                        <th>%</th>
                     </tr>
-                    <?php foreach ($pacientes as $paciente): ?>
-                        <tr>
-                            <td><?= traduzEstado($paciente['estado']); ?></td>
-                            <td><?= $paciente['estado']; ?></td>
-                            <td><?= $paciente['quantidade']; ?></td>
-                        </tr>  
+                    <?php foreach ($pacientes as $p): ?>
+                         <tr>
+                            <td><a href="<?= $p->estado; ?>"><?= traduzEstado($p->estado); ?></a></td>
+                            <td><?= $p->estado; ?></td>
+                            <td><?= $p->quantidade; ?></td>
+                            <td><?= porcentagem($total, $p->quantidade);?>%</td>
+                        </tr>
                     <?php endforeach; ?>
                     <?php if(count($pacientes) == 0): ?>
                         <td>-</td>
                         <td>-</td>
                         <td>-</td>
+                        <td>-</td>
+                    <?php endif; ?>
+                    <?php if(count($pacientes) > 0): ?>
+                        <td colspan="2">Total</td>
+                        <td><?=$total; ?></td>
+                        <td>100%</td>
                     <?php endif; ?>
                 </table> 
             <?php endif; ?> 

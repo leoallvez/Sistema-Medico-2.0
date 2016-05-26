@@ -65,24 +65,3 @@ INSERT INTO medico VALUES(default,2,"Serge Brinn","12346","12345","Clínico Gera
 INSERT INTO medico VALUES(default,3,"Shigeru Miyamoto","12347","12345","Clínico Geral","dr@servidor.com.br  ");
 INSERT INTO medico VALUES(default,4,"Mark Zuckerberg","12348","12345","Clínico Geral","dr@servidor.com.br");
 INSERT INTO medico VALUES(default,5,"Ada Lovelace","12349","12345","Clínico Geral","dr@servidor.com.br ");
-
-					   
-
-INSERT INTO paciente VALUES (default,1,'2016-05-15','Passou pela Triagem','37090548856','Leonardo Pereira Alves','1982-09-05','M','Rua das Rosas','02952-230','Vila Feliz','São Paulo','SP','Posto de saúde','Posto de Atendimento Santa Rosa',1,1,1,1,1,1,1,1,1,1,'');
-
-#QUERY.
-# selecionar quantos pacientes estão internados por estado
-SELECT estado, COUNT(id) as "Quant" FROM paciente WHERE situacao = 'Passou pela Triagem' GROUP BY estado;
-
-SELECT cpf, nome, situacao, cidade FROM paciente WHERE estado = 'SP' ORDER BY nome;
-
-
-SELECT id,cpf, nome, situacao, cidade FROM paciente WHERE estado = 'SP' AND situacao = 'Esta Internado' ORDER BY nome
-
-
-
-
-
-
-
-

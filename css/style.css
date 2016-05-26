@@ -1,6 +1,7 @@
 body{
-  background: #F0FFFF;
+  background: #2F4F4F;;
   transition: all 0.9s;
+  text-shadow: 1px 1px 1px rgba(105,105,105,0.5);
 }
 
 .red{
@@ -11,18 +12,30 @@ body{
   background: #87CEFA;
   color: #FFF;
   text-shadow: 1px 1px 1px #000;
-
+  background-image: linear-gradient(to bottom,#1E90FF,#4169E1);
 }
 
 .cad-paciente th, td{
-  border: 1px solid #87CEFA;
-  padding: 2%;
+  border: 1px solid #1E90FF;
+  padding: 1%;
   text-align: center;
-  
   margin: 2%;
   position: relative;
-  font-size: 1.1em; 
-  
+  font-size: 1.3em;
+  transition: all 1.4s;
+}
+
+.cad-paciente tr:hover{
+  background-image: linear-gradient(to bottom,#1E90FF,#4169E1);
+  text-shadow: 1px 1px 1px #000;
+  color: #FFF;
+  font-size: 1.3em;
+}
+
+tr:hover a{
+  background-image: linear-gradient(to bottom,#1E90FF,#4169E1); 
+  color: #FFF; 
+  padding: 2%;
 }
 
 .cad-paciente table{
@@ -30,13 +43,11 @@ body{
   margin-left: 1%;
   margin-top: 2%;
   min-width: 650px;
-  border: 3px solid #87CEFA;
+  border: 3px solid #1E90FF;
   border-radius: 5px;
   padding: 2%;
   box-shadow: 2px 2px 2px rgba(0,0,0,0.5);
 }
-
-
 
 .foot1{
   border: solid 1px #808080;
@@ -71,7 +82,7 @@ body{
 
 h3{
   color: #1E90FF;
-  text-shadow: 1px 1px 1px rgba(0,0,0,0.7);
+  text-shadow: 1px 1px 1px rgba(105,105,105,1);
 }
 
 .foot p{
@@ -92,7 +103,7 @@ h3{
 
 legend{
   color: #1E90FF;
-  text-shadow: 1px 1px 1px rgba(0,0,0,1);
+  text-shadow: 1px 1px 1px rgba(105,105,105,1);
 }
 
 form{
@@ -118,6 +129,7 @@ form{
   background: #87CEFA;
   color: #FFF;
   transition: all 0.5s;
+
 }
 
 .login input[type=submit]:hover{
@@ -139,6 +151,12 @@ form{
   margin-bottom: 2%;
   width: 85%;
 }
+
+.cad-paciente table{
+  min-width: 85%;
+  border-radius: 6px;
+}
+
 
 .cad-paciente input:focus,
 .cad-paciente textarea:focus{
