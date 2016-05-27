@@ -19,7 +19,7 @@
 		/**Busca pacintes pelo primeiro nome ou cpf, tanto em maiuscula como 
 		em minuscula senão encontra nada retorna uma array vazio*/
 		public function buscarPacientes($valor){
-			$sql = "SELECT * FROM paciente where cpf = '{$valor}' OR nome like '{$valor}%'";	
+			$sql = "SELECT * FROM paciente where cpf = '{$valor}' OR nome like '{$valor}%' ORDER BY nome";	
 			$result = $this->mysqli->query($sql);
 			$pacientes = array();
 			while($p = $result->fetch_object()){

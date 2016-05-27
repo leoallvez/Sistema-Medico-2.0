@@ -65,3 +65,35 @@ INSERT INTO medico VALUES(default,2,"Serge Brinn","12346","12345","Clínico Gera
 INSERT INTO medico VALUES(default,3,"Shigeru Miyamoto","12347","12345","Clínico Geral","dr@servidor.com.br  ");
 INSERT INTO medico VALUES(default,4,"Mark Zuckerberg","12348","12345","Clínico Geral","dr@servidor.com.br");
 INSERT INTO medico VALUES(default,5,"Ada Lovelace","12349","12345","Clínico Geral","dr@servidor.com.br ");
+
+#Atualizando nomes da cidade por estado;
+
+UPDATE paciente SET cidade = "Rio Branco" WHERE estado = "AC" ;
+UPDATE paciente SET cidade = "Maceio" WHERE estado = "AL" ;
+UPDATE paciente SET cidade = "Macapa" WHERE estado = "AP" ;
+UPDATE paciente SET cidade = "Manaus" WHERE estado = "AM" ;
+UPDATE paciente SET cidade = "Salvador" WHERE estado = "BA" ;
+UPDATE paciente SET cidade = "Fortaleza" WHERE estado = "CE" ;
+UPDATE paciente SET cidade = "Brasilia" WHERE estado = "DF" ;
+UPDATE paciente SET cidade = "Vitoria" WHERE estado = "ES" ;
+UPDATE paciente SET cidade = "Goiania" WHERE estado = "GO" ;
+UPDATE paciente SET cidade = "Sao Luis" WHERE estado = "MA" ;
+UPDATE paciente SET cidade = "Cuiaba" WHERE estado = "MT";
+UPDATE paciente SET cidade = "Campo Grande" WHERE estado = "MS";
+UPDATE paciente SET cidade = "Belo Horizonte" WHERE estado = "MG";
+UPDATE paciente SET cidade = "Belem" WHERE estado = "PA";
+UPDATE paciente SET cidade = "Joao Pessoa" WHERE estado = "PB";
+UPDATE paciente SET cidade = "Curitiba" WHERE estado = "PR";
+UPDATE paciente SET cidade = "Recife" WHERE estado = "PE";
+UPDATE paciente SET cidade = "Teresinha" WHERE estado = "PI";
+UPDATE paciente SET cidade = "Rio de janeiro" WHERE estado = "RJ";
+UPDATE paciente SET cidade = "Rio Grande do Norte" WHERE estado = "RN";
+UPDATE paciente SET cidade = "Rio Grande do Sul" WHERE estado = "RS";
+UPDATE paciente SET cidade = "Porto Velho" WHERE estado = "RO";
+UPDATE paciente SET cidade = "Boa Vista" WHERE estado = "RR";
+UPDATE paciente SET cidade = "Florianopolis" WHERE estado = "SC";
+UPDATE paciente SET cidade = "Sao Paulo" WHERE estado = "SP";
+UPDATE paciente SET cidade = "Aracaju" WHERE estado = "SE";
+UPDATE paciente SET cidade = "Palmas" WHERE estado = "TO";
+
+select distinct estado, cidade from paciente order by estado;

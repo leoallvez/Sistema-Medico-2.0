@@ -4,15 +4,21 @@ body{
   text-shadow: 1px 1px 1px rgba(105,105,105,0.5);
 }
 
+img{
+  margin-left: -15px;
+}
+
 .red{
   color: red;
 }
 .cad-paciente th{
   font-size: 1.4em; 
+  padding: 1%;
   background: #87CEFA;
   color: #FFF;
   text-shadow: 1px 1px 1px #000;
   background-image: linear-gradient(to bottom,#1E90FF,#4169E1);
+  transition: all 0.9s;
 }
 
 .cad-paciente th, td{
@@ -22,18 +28,18 @@ body{
   margin: 2%;
   position: relative;
   font-size: 1.3em;
-  transition: all 1.4s;
+  transition: all 0.9s;
 }
 
 .cad-paciente tr:hover{
-  background-image: linear-gradient(to bottom,#1E90FF,#4169E1);
+  background: #00BFFF;
   text-shadow: 1px 1px 1px #000;
   color: #FFF;
-  font-size: 1.3em;
+  /**font-size: 1.3em;*/
 }
 
 tr:hover a{
-  background-image: linear-gradient(to bottom,#1E90FF,#4169E1); 
+  background: #00BFFF; 
   color: #FFF; 
   padding: 2%;
 }
@@ -96,7 +102,7 @@ h3{
   margin: 7% auto auto;
   border: 1px solid #808080;
   background: #FFF;
-  min-height: 80%;
+  max-height: 60%;
   width: 25%;
   background: #FFF;
 }
@@ -126,19 +132,28 @@ form{
 
 .login input[type=submit]{
   text-shadow: 1px 1px 1px #000;
-  background: #87CEFA;
+  background-image: linear-gradient(to bottom,#1E90FF,#4169E1);
   color: #FFF;
   transition: all 0.5s;
 
 }
 
 .login input[type=submit]:hover{
-  background: #00BFFF;
+  background-image: linear-gradient(to bottom,#00BFFF,#4169E1);
   color: #FFF;
 }
 
 .login input[type=submit]:active{
   font-size: 1.1em;
+}
+
+.login input[type=password]:hover,
+.login input[type=text]:hover{
+  background: #F0FFFF;
+  color: #4169E1;
+  font-family: Verdana;
+  outline-color: #00BFFF;
+  outline-size: 2px;
 }
 
 .cad-paciente{
@@ -153,10 +168,9 @@ form{
 }
 
 .cad-paciente table{
-  min-width: 85%;
+  min-width: 95%;
   border-radius: 6px;
 }
-
 
 .cad-paciente input:focus,
 .cad-paciente textarea:focus{
@@ -257,5 +271,18 @@ h3{
   .cad-paciente table{
     min-width: 100%;
     margin-left: 0;
+  }
+
+  .cad-paciente th{
+    font-size: 1em;
+  }
+
+  .cad-paciente td{
+    font-size: 1em;
+    text-align: center;
+  }
+
+  .change{
+    display: none;
   }
 }

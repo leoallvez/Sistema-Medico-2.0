@@ -99,4 +99,8 @@
 		return round(($valor * 100) / $total,1);
 	}
 
+	function totalBusca($objeto){
+		return count($objeto);
+	}
+
 ?>

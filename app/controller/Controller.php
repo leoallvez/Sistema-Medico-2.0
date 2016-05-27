@@ -1,14 +1,21 @@
 <?php 
 	include "app/model/PacienteDAO.php";
+	include "app/model/MedicoDAO.php";
 	Class Controller{
 
 		public function cadastro(){
 			$situacao = "Passou pela Triagem";
 			$tipo_unidade = "Posto de saude";
+			#Atribuir a médico a variavel de sessão com todos os dados do medico logado.
+			$medico = $_SESSION['acesso'];
+			#buscar de medico medDAO que foi instaciada em login a unidade do medico.
+			$medDAO = new MedicoDAO();
+			$unidade = $medDAO->buscarUnidade($medico->id_unidade);
+
 
 			if(count($_POST) > 0){
 				#CRM médico
-				$crm = "12345";
+				$crm = $medico->CRM;
 				#Situacao.
 				$sit = $_POST['situacao'];
 				#Pessoa.
@@ -42,7 +49,7 @@
 
 				$DAO = new PacienteDAO();
 
-				if($DAO->gravarPaciente($p,1)){
+				if($DAO->gravarPaciente($p,$medico->id)){
 					header("Location: aviso-cadastro.php");
 				}else{
 					header("Location: aviso-de-nao-cadastro.php");
@@ -64,9 +71,27 @@
 
 			$DAO = new PacienteDAO();
 
-       		$pacientes =  $DAO->listarQuantPacientesPorEstado($tipo_unidade, $situacao);   
+       		$pacientes = $DAO->listarQuantPacientesPorEstado($tipo_unidade, $situacao);   
 
         	include "app/view/view-relatorio.php";
-      	}  			
+      	} 
+
+      	public function buscarPaciente(){
+      		$mostrarTabela = false;
+      		$valor = "*";
+      		if(count($_POST) > 0){
+      			$valor = $_POST['valor'];
+      			if($valor == ""){
+      				$valor = "*";
+      			}
+      			$mostrarTabela = true;
+      		}
+
+      		$DAO = new PacienteDAO();
+
+      		$pacientes = $DAO->buscarPacientes($valor);
+
+      		include "app/view/view-buscar-paciente.php";
+      	} 			
     }
 ?>

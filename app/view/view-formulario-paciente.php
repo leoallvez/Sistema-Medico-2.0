@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="pt">
 <head>
-  <title>Health Info |  Paciente</title>
+  <title>Health Info | Cadastro Paciente</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
@@ -12,15 +12,24 @@
   <script type="text/javascript">
     $(document).ready(function(){ $("#cpf").mask("99999999999");});
     $(document).ready(function(){ $("#cep").mask("99999-999");});
-    </script>
+</script>
   <link rel="stylesheet" href="css/style.css">
+  <link rel="shortcut icon" href="img/icont.ico" >
 </head>
     <body>
         <?php include "app/view/includes/view-head.php"; ?>
         <form method="POST">
             <div class="cad-paciente">
+                <fieldset>
+                    <legend>Dados de Antendimento</legend>
+                    <label>Data: <?= date("d/m/Y"); ?></label></br>
+                    <label>Médico: <?= $medico->nome; ?></label>
+                    <label>CRM: <?= $medico->CRM; ?></label></br>
+                    <label>Especialidade: <?=$medico->especialidade; ?></label><br>
+                    <label>Unidade de saúde: <?=$unidade->nome; ?></label>
+                    <label>Tipo: <?=$unidade->tipo; ?></label><br>
+                </fieldset>
                 <h3>Cadastro de Paciente</h3>
-                <label>Data: <?= date("d/m/Y"); ?></label></br>
                 <?php include "app/view/includes/view-status.php"; ?><br>
                 <label for="cpf">CPF</label></br>
                 <input type="text" name="cpf" id="cpf" placeholder="11 digitos" min="15"size="15" required><br>
@@ -42,10 +51,6 @@
                 <input type="text" name="cidade" placeholder="Cidade" class="input-large" id="cid"required/><br>
                 <label>Estado</label></br>
                 <?php include "app/view/includes/view-estados.php"; ?>
-                <label for="uni">Tipo de únidade de saúde</label><br>
-                <?php include "app/view/includes/view-unidade-saude.php"; ?><br>
-                <label for="uni">Nome da únidade de saúde</label><br>
-                <input type="text" name="nome_unidade" placeholder="Unidade" id="uni" class="input-large" required></br>
                 <fieldset>
                     <legend>Principais Sintomas</legend>
                     <input type="checkbox" value="true" name="febre" id="febre"/>

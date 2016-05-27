@@ -4,5 +4,5 @@
 
 	$con = new Controller();
 
-	$con->cadastro();
+	$con->buscarPaciente();
 ?>
