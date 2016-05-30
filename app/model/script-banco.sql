@@ -97,3 +97,34 @@ UPDATE paciente SET cidade = "Aracaju" WHERE estado = "SE";
 UPDATE paciente SET cidade = "Palmas" WHERE estado = "TO";
 
 select distinct estado, cidade from paciente order by estado;
+
+UPDATE paciente
+SET
+	id_medico = 2,
+	data_atendimento = '2016/05/29',
+	situacao = 'internado',
+	cpf = "00000000000",
+	nome = "Leo Alves",
+	nascimento = '1982/09/10',
+	sexo = 'M',
+	endereco = 'Ruas das Peras',
+	cep = '000000000',
+	bairro = 'X',
+	cidade = 'X',
+	estado = 'SP',
+	#unidade de saúde
+	id_unidade = 1,
+	#Sintomas 10!
+	febre = 1,
+	dor_cabeca = 1,
+	dor_olhos = 1,
+	perda_apetite = 1,
+	mancha_pele = 1,
+	vomito = 1,
+	tontura = 1,
+	cansaco = 1,
+	moleza = 1,
+	dor_ossos = 1,
+	parecer_medico = 'Paciente extremamento doente'
+WHERE
+	id = 1

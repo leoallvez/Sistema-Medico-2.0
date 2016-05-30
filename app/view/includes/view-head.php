@@ -13,7 +13,7 @@
     <!-- Collection of nav links, forms, and other content for toggling -->
     <div id="navbarCollapse" class="collapse navbar-collapse">
         <ul class="nav navbar-nav">
-            <li><a href="#">Início</a></li>
+            <!--<li><a href="#">Início</a></li>-->
             <li class="dropdown active" >
                 <a data-toggle="dropdown" class="dropdown-toggle" href="#">Cadastro<b class="caret"></b></a>
                 <ul role="menu" class="dropdown-menu">
@@ -30,7 +30,14 @@
             </div>
         </form>
         <ul class="nav navbar-nav navbar-right">
-            <li><a href="logoff.php">Log out</a></li>
+            <li>
+                <a data-toggle="dropdown" class="dropdown-toggle" href="#">Dr(a) <?=$_SESSION['acesso']->nome; ?><b class="caret"></b></a>
+                <ul role="menu" class="dropdown-menu">
+                    <li><a href="logoff.php">Sair</a></li>
+                    
+
+                </ul>
+            </li>
         </ul>
     </div>
 </nav>

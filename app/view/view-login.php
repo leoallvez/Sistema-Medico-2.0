@@ -15,9 +15,9 @@
   <link rel="stylesheet" href="css/style.css">
   <link rel="shortcut icon" href="img/icont.ico" >
 </head>
-<body>
-    <nav role="navigation" class="navbar navbar-inverse">
-    <!-- Brand and toggle get grouped for better mobile display -->
+<body class="main-login">
+  <nav role="navigation" class="navbar navbar-inverse">
+  <!-- Brand and toggle get grouped for better mobile display -->
     <div class="navbar-header">
         <button type="button" data-target="#navbarCollapse" data-toggle="collapse" class="navbar-toggle">
             <span class="sr-only">Toggle navigation</span>
@@ -29,7 +29,7 @@
         <img src="img/icone.png" alt="Smiley face" height="42" width="42">
     </div>
     <!-- Collection of nav links, forms, and other content for toggling -->
-</nav>
+  </nav>
     <div class="login">
         <form method="POST">
             <label>Login:</label><br>

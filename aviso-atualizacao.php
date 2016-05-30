@@ -14,7 +14,7 @@
     <body>
         <?php include "app/view/includes/view-head.php"; ?>
         <div class="cad-paciente">
-            <h3 class="red">Cadastro, não realizado! paciente foi já cadastrado no sistema anteriormente!</h3>
+            <h3>Paciente atualizado com sucesso!</h3>
         </div>
     </body>
 </html>

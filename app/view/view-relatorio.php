@@ -32,7 +32,7 @@
                     </tr>
                     <?php foreach ($pacientes as $p): ?>
                          <tr>
-                            <td><a href="<?= $p->estado; ?>"><?= traduzEstado($p->estado); ?></a></td>
+                            <td><?= traduzEstado($p->estado); ?></td>
                             <td><?= $p->estado; ?></td>
                             <td><?= $p->quantidade; ?></td>
                             <td><?= porcentagem($total, $p->quantidade);?>%</td>

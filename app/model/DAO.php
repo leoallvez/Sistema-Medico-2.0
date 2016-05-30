@@ -26,5 +26,9 @@
     			exit();
 			}
 		}
+
+		public function fechaBanco(){
+			$this->mysqli->close();
+		}
 	}
 ?>

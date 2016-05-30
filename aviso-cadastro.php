@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+<?php include "app/model/login.php"; ?>
 <html lang="pt">
     <head>
         <title>Health Info |  Aviso</title>

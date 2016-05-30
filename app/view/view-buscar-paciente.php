@@ -32,7 +32,7 @@
                                 <td><?= $p->nome; ?></td>
                                 <td class="change"><?= $p->cidade; ?></td>
                                 <td><?= $p->estado; ?></td>
-                                <td><a href="#">Ver</a></td>
+                                <td><a href="atualizar-paciente.php?id=<?=base64_encode($p->id);?>">Ver</a></td>
                             </tr>
                         <?php endforeach; ?>
                     </table> 

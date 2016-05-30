@@ -1,4 +1,4 @@
-<select id="selectbasic" name="estado">
+<select id="selectbasic" name="estado" value="<?=$p->estado;?>">
     <option value="AC">Acre</option>
     <option value="AL">Alagoas</option>
     <option value="AP">Amapá</option>

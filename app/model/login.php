@@ -7,6 +7,7 @@
 			$medDAO = new MedicoDAO();
 			if($medDAO->login($_POST['login'],$_POST['senha'])){
 				$_SESSION['acesso'] = $medDAO->login($_POST['login'],$_POST['senha']);
+				#$medDAO->fechaBanco();
 				unset($_POST);
 				header("Location: index.php");
 			}else{

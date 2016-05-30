@@ -21,7 +21,7 @@
         <form method="POST">
             <div class="cad-paciente">
                 <fieldset>
-                    <legend>Dados de Antendimento</legend>
+                    <legend>Dados do Atendimento</legend>
                     <label>Data: <?= date("d/m/Y"); ?></label></br>
                     <label>Médico: <?= $medico->nome; ?></label>
                     <label>CRM: <?= $medico->CRM; ?></label></br>

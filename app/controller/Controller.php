@@ -1,6 +1,7 @@
 <?php 
 	include "app/model/PacienteDAO.php";
 	include "app/model/MedicoDAO.php";
+	include "app/model/UnidadeDAO.php";
 	Class Controller{
 
 		public function cadastro(){
@@ -9,8 +10,8 @@
 			#Atribuir a médico a variavel de sessão com todos os dados do medico logado.
 			$medico = $_SESSION['acesso'];
 			#buscar de medico medDAO que foi instaciada em login a unidade do medico.
-			$medDAO = new MedicoDAO();
-			$unidade = $medDAO->buscarUnidade($medico->id_unidade);
+			$uniDAO = new UnidadeDAO();
+			$unidade = $uniDAO->buscarUnidade($medico->id_unidade);
 
 
 			if(count($_POST) > 0){
@@ -45,7 +46,6 @@
 				$sint = new Sintomas($fe,$dc,$d,$pe,$mp,$vt,$to,$ca,$mo,$do);
 
 				$p = new Paciente($sit, $crm, $nome, $cpf,$nasc,$sexo,$ende,$sint,$pa);
-				#function __construct($situ = "", $crm, $nome, $cpf, $nasc, $sexo, Endereco $ende, Sintomas $sint, $pare)
 
 				$DAO = new PacienteDAO();
 
@@ -92,6 +92,78 @@
       		$pacientes = $DAO->buscarPacientes($valor);
 
       		include "app/view/view-buscar-paciente.php";
-      	} 			
+      	} 
+
+      	public function atualizarPaciente(){
+			
+      		if(count($_GET) > 0){
+      			$DAO = new PacienteDao();
+      	
+      			$id_paciente = base64_decode($_GET['id']);
+
+      			$p = $DAO->buscarPaciente($id_paciente);
+      			$DAO->fechaBanco();
+
+				if(isset($p)){
+					$uniDAO = new UnidadeDAO();
+					$unidade = $uniDAO->buscarUnidade($p->id_unidade);
+					$uniDAO->fechaBanco();
+					$medDAO = new MedicoDAO();
+					$medico = $medDAO->buscarMedico($p->id_medico);
+					unset($medDAO);
+					if(count($_POST) > 0){
+						#Atribuir a médico a variavel de sessão com todos os dados do medico logado.
+						$medico = $_SESSION['acesso'];
+						$uniDAO = new UnidadeDAO();
+						$unidade = $uniDAO->buscarUnidade($medico->id_unidade);
+						unset($medDAO);
+						#CRM médico
+						$crm = $medico->CRM;
+						#Situacao.
+						$sit = $_POST['situacao'];
+						#Pessoa.
+						$cpf = $_POST['cpf'];
+						$nome = $_POST['nome'];
+						$nasc = $_POST['nascimento'];
+						$sexo = $_POST['sexo'];
+						#Endereco
+						$lo = $_POST['endereco'];
+						$ce = $_POST['cep'];
+						$ba = $_POST['bairro'];
+						$ci = $_POST['cidade'];
+						$es = $_POST['estado'];
+						$ende = new Endereco($lo,$ce,$ba,$ci,$es);
+						$pa = $_POST['parecer_medico'];
+						#Sintomas
+						$fe = (isset($_POST['febre']))? 1 : 0;
+						$dc = (isset($_POST['dor_cabeca']))? 1 : 0;
+						$d  = (isset($_POST['dor_olhos']))? 1 : 0;
+						$pe = (isset($_POST['perda_apetite']))? 1 : 0;
+						$mp = (isset($_POST['mancha_pele']))? 1 : 0;
+						$vt = (isset($_POST['vomito']))? 1 : 0;
+						$to = (isset($_POST['tontura']))? 1 : 0;
+						$ca = (isset($_POST['cansaco']))? 1 : 0;
+						$mo = (isset($_POST['moleza']))? 1 : 0;
+						$do = (isset($_POST['dor_ossos']))? 1 : 0;
+						$sint = new Sintomas($fe,$dc,$d,$pe,$mp,$vt,$to,$ca,$mo,$do);
+
+						$p = new Paciente($sit, $crm, $nome, $cpf,$nasc,$sexo,$ende,$sint,$pa);
+
+						$DAO = new PacienteDAO();
+
+						if($DAO->atualizarPaciente($p,$medico->id,$id_paciente)){
+							$DAO->fechaBanco();
+							header("Location: aviso-atualizacao.php");
+						}else{
+							$DAO->fechaBanco();
+							header("Location: aviso-de-nao-atualizacao.php");	
+						}
+					}
+					include "app/view/view-formulario-paciente-atualizar.php";
+				}else{
+					header("Location: logoff.php");
+				}
+      		}
+      	}			
     }
 ?>

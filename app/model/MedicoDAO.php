@@ -19,11 +19,10 @@
 			return $objeto->id;
 		}
 
-		public function buscarUnidade($id){
-			$sql = "SELECT * FROM unidade_de_saude WHERE id = '{$id}' ";
+		public function buscarMedico($id){
+			$sql = "SELECT * FROM medico WHERE id = {$id}";
 			$result = $this->mysqli->query($sql);
-			$objeto = $result->fetch_object();
-			return $objeto;
+			return $result->fetch_object();
 		}
 	}
 ?>
