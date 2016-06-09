@@ -128,3 +128,8 @@ SET
 	parecer_medico = 'Paciente extremamento doente'
 WHERE
 	id = 1
+
+	delete from medico;
+	delete from paciente;
+	delete from unidade_de_saude;
+
